@@ -1,0 +1,52 @@
+name:                graphqlient
+version:             0.1.0.0
+github:              "koterpillar/graphqlient"
+license:             BSD3
+author:              "Alexey Kotlyarov"
+maintainer:          "a@koterpillar.com"
+copyright:           "2019 Alexey Kotlyarov"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/koterpillar/graphqlient#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- attoparsec
+- graphql
+- template-haskell
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  graphqlient-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphqlient
+
+tests:
+  graphqlient-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphqlient
